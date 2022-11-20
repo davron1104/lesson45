@@ -1,6 +1,7 @@
 'use strict';
 
-const btn = document.querySelector('button');
+const btn = document.querySelectorAll('button'),
+    overlay = document.querySelector('.overlay');
 
 // btn.onclick = function() { 
 //     alert('Click');
@@ -14,7 +15,30 @@ const btn = document.querySelector('button');
 //     alert('secondClick');
 // });
 
-btn.addEventListener('mouseenter', () => {
-    console.log('Counter');
+// btn.addEventListener('mouseenter', function(e){
+//     console.log(e);
+// });
+
+let i = 0;
+
+const deleteElement = (e) => {
+    console.log(e.target);
+    console.log(e.type);
+    // i++;
+    // if (i == 1) {
+    //     btn.removeEventListener('click', deleteElement);
+    // }
+};
+
+// btn.addEventListener('click', deleteElement);
+overlay.addEventListener('click', deleteElement);
+
+btn.forEach(item => {
+    item.addEventListener('click', deleteElement);
 });
 
+const link = document.querySelector('a');
+
+link.addEventListener('click', function (event) {
+    event.preventDefault();
+});
